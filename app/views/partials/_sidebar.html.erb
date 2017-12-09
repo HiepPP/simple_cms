@@ -1,0 +1,20 @@
+<% if params[:controller] == 'about' %>
+    <div class="well">
+      <h3>Location Info</h3>
+      <ul>
+        <li> The bookstore</li>
+        <li> 701 Ngo Tu Loi</li>
+        <li>email: Zendragon93@gmail.com</li>
+      </ul>
+    </div>
+<% end %>
+
+
+<% if params[:controller] == 'books' && params[:action] == 'index' || params[:action] == 'show' ||params[:action] == 'edit' %>
+    <div class="list-group">
+      <!--<a href="" class="list-group-item">ruby on rails</a>-->
+      <% @categories.each do |cate| %>
+          <%= link_to cate.name, categories_path(cate.id), class: 'list-group-item' %>
+      <% end %>
+    </div>
+<% end %>

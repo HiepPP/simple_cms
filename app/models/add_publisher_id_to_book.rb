@@ -1,0 +1,2 @@
+class AddPublisherIdToBook < ApplicationRecord
+end

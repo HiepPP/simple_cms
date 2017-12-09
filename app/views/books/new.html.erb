@@ -1,0 +1,50 @@
+<h2>Add new book</h2>
+
+<%= form_for @books do |item| %>
+
+    <% if @books.errors.any? %>
+        <% @books.errors.full_messages.each do |error| %>
+            <div class="alert alert-danger"> <%= error %> </div>
+        <% end %>
+    <% end %>
+
+    <div class="form-group">
+      <%= item.label :title %><br>
+      <%= item.text_field :title, class: 'form-control' %><br>
+    </div>
+
+
+    <div class="form-group">
+      <%= item.label :isbn %><br>
+      <%= item.text_field :isbn, class: 'form-control' %><br>
+    </div>
+
+
+    <div class="form-group">
+      <%= item.label :category %><br>
+      <%= item.select :category_id,
+                      Category.all.collect {|x| [x.name, x.id]},
+                      {:include_blank => 'select one'},
+                      class: 'form-control' %><br>
+    </div>
+
+    <div class="form-group">
+      <%= item.label :author %><br>
+      <%= item.select :author_id,
+                      Author.all.collect {|x| [x.name, x.id]},
+                      {:include_blank => 'select one'},
+                      class: 'form-control' %><br>
+    </div>
+
+
+    <div class="form-group">
+      <%= item.label :publisher %><br>
+      <%= item.select :publisher_id,
+                      Publisher.all.collect {|x| [x.name, x.id]},
+                      {:include_blank => 'select one'},
+                      class: 'form-control' %><br>
+    </div>
+
+    <%= item.submit "Submit", class: 'btn btn-primary' %>
+    <%= link_to "Cancel", books_path, class: 'btn btn-default' %>
+<% end %>

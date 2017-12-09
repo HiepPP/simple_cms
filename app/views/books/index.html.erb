@@ -1,0 +1,12 @@
+<div id="books-index">
+  <div class="row">
+    <%	@bookList.each do |item|  %>
+        <div class="col-md-3 col-sm-3">
+          <h3><%=	 item.title %> </h3>
+          <%= image_tag('cover/Hacking_Book_Cover_second_edition.jpg') %>
+          <%= link_to 'read more', book_path(item), class:'btn btn-primary'%>
+        </div>
+    <%end%>
+
+  </div>
+</div>

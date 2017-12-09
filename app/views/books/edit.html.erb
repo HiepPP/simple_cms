@@ -1,0 +1,44 @@
+<div id="books-index">
+  <div class="row">
+
+    <%= form_for @book do |item| %>
+        <div class="form-group">
+          <%= item.label :title %><br>
+          <%= item.text_field :title, class: 'form-control' %><br>
+        </div>
+        <div class="form-group">
+          <%= item.label :isbn %><br>
+          <%= item.text_field :isbn, class: 'form-control' %><br>
+        </div>
+
+
+        <div class="form-group">
+          <%= item.label :category %><br>
+          <%= item.select :category_id,
+                          Category.all.collect {|x| [x.name, x.id]},
+                          {:include_blank => 'select one'},
+                          class: 'form-control' %><br>
+        </div>
+
+        <div class="form-group">
+          <%= item.label :author %><br>
+          <%= item.select :author_id,
+                          Author.all.collect {|x| [x.name, x.id]},
+                          {:include_blank => 'select one'},
+                          class: 'form-control' %><br>
+        </div>
+
+
+        <div class="form-group">
+          <%= item.label :publisher %><br>
+          <%= item.select :publisher_id,
+                          Publisher.all.collect {|x| [x.name, x.id]},
+                          {:include_blank => 'select one'},
+                          class: 'form-control' %><br>
+        </div>
+        <%= item.submit "Submit", class: 'btn btn-primary' %>
+        <%= link_to "Cancel", books_path, class: 'btn btn-default' %>
+        <%= link_to "Delete", book_path, method: :delete ,  class: 'btn btn-default' %>
+  <% end %>
+  </div>
+</div>

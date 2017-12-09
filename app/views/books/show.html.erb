@@ -1,0 +1,18 @@
+<div id="books-show">
+  <h2><%=	@bookInfo.title  %></h2>
+  <div class="books-show-left">
+    <%=	 image_tag('cover/Hacking_Book_Cover_second_edition.jpg') %>
+  </div>
+  <div class="books-show-right">
+    <h3>book info</h3>
+    <ul>
+      <li><strong>Category:</strong> <%= @bookInfo.category.name %>  </li>
+      <li><strong>Publisher:</strong> <%= @bookInfo.publisher.name %> </li>
+      <li><strong>Author:</strong> <%=	 @bookInfo.author.name %> </li>
+      <li><strong>Isbn:</strong> <%=	 @bookInfo.isbn  %>  </li>
+    </ul>
+    <%= link_to 'Edit this book', edit_book_path  ,class:'btn btn-success'%><br>
+    <%= link_to 'Back to index', back_index_books_path  ,class:'btn btn-success'%>
+  </div>
+</div>
+

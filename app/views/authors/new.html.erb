@@ -1,0 +1,17 @@
+<h2>add new author</h2>
+
+<%= form_for @authors do |item| %>
+
+    <% if @authors.errors.any? %>
+        <% @authors.errors.full_messages.each do |error| %>
+            <div class="alert alert-danger"> <%=	error %> </div>
+        <% end %>
+    <% end %>
+
+    <div class="form-group">
+      <%= item.label :name %><br>
+      <%= item.text_field :name, class: 'form-control' %><br>
+    </div>
+    <%= item.submit "Submit", class: 'btn btn-primary' %>
+    <%= link_to "Cancel", authors_path, class: 'btn btn-default' %>
+<% end %>
